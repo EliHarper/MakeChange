@@ -45,6 +45,9 @@ public class MakeChangeApp {
 			System.out.println("Change: $" + String.format("%.2f", change));
 			System.out.println();
 			System.out.println(leadingStatement);
+			if (change == 0) {
+				System.out.println("Nothing! Thanks for the exact change!");
+			}
 			Twenties();
 			Tens();
 			Fives();
