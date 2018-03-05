@@ -42,7 +42,7 @@ public class MakeChangeApp {
 			double change = amountPaid - price;
 
 			System.out.println();
-			System.out.println("Change: " + String.format("%.2f", change));
+			System.out.println("Change: $" + String.format("%.2f", change));
 			System.out.println();
 			System.out.println(leadingStatement);
 			Twenties();
@@ -55,7 +55,7 @@ public class MakeChangeApp {
 			Pennies(change);
 
 			System.out.println("\nThank you!");
-			System.out.println("Type \"quit\" to quit");
+			System.out.println("Type \"quit\" to quit and anything else to continue.");
 			String quitter = kb.next();
 
 			if (quitter.equalsIgnoreCase("quit")) {
@@ -167,16 +167,25 @@ public class MakeChangeApp {
 	}
 
 	public static void Pennies(double change) {
+		change = Math.round(change * 100.0)/100.0;
 		double pennies = (change*100)%5;
+		
 	
-		if (pennies >1) {
-			System.out.println((int)pennies + " pennies");
+		if ((int)pennies ==2) {
+			System.out.println("2 pennies");
 		}
-		else if (pennies ==1) {
+		else if ((int)pennies ==3) {
+			System.out.println("3 pennies");
+		}
+		else if ((int)pennies ==4) {
+			System.out.println("4 pennies");
+		}
+		else if ((int)pennies ==1) {
 			System.out.println("1 penny");
 		}
 		//When I had the pennies method set up like the rest, it was returning incorrect values.
-		//Change variable was still correct, so I decided to make the value dependent upon change.
+		//The change variable was still correct, so I decided to make the value dependent upon change.
+		//With more reflection, I think I found that it was a rounding error; the Math.round method has it working now.
 
 		}
 }
