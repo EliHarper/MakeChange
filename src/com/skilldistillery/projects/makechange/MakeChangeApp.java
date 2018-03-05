@@ -55,7 +55,7 @@ public class MakeChangeApp {
 			Pennies(change);
 
 			System.out.println("\nThank you!");
-			System.out.println("Type \"quit\" to quit and anything else to continue.");
+			System.out.println("Enter \"quit\" to quit; enter anything else to continue.");
 			String quitter = kb.next();
 
 			if (quitter.equalsIgnoreCase("quit")) {
